@@ -22,7 +22,9 @@ Requirements
 Deploy
 ------
 
-After installing all the required package, you could simply run
+After installing all the required package,
+firt thing to do is add related Shopify credentials to settings.py,
+then you could simply run
 $ python ./bizzyapp.py
 By default, Flask runs this app on localhost:5000
 
