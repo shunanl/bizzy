@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import shopify
 import postmon
 import settings
+import time
 
 
 class addCouponError(Exception):
@@ -31,7 +32,7 @@ def prepareCoupon(token, data):
         'usage_limit_type': 'no_limit',
         'discount[usage_limit]': '',
         'discount[applies_once_per_customer]': '0',
-        'discount[starts_at]': '2016-05-03',
+        'discount[starts_at]': time.strftime("%Y-%m-%d"),
         'discount_never_expires': '',
     }
     if data['discount[minimum_order_amount]'] > 0:
@@ -125,8 +126,8 @@ def getDiscounts():
         'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_11_4; ' \
         'en-US) AppleWebKit/534.7 (KHTML, like Gecko) ' \
         'Chrome/7.0.517.41 Safari/534.7',
-        'X-XHR-Referer': 'https://shunanl.myshopify.com/admin/discounts',
-        'Referer': 'https://shunanl.myshopify.com/admin/discounts',
+        'X-XHR-Referer': settings.ShopifyConfig.ADMIN_URL + 'discounts',
+        'Referer': settings.ShopifyConfig.ADMIN_URL + 'discounts',
         'X-Prototype-Version': '1.7_rc2',
         'X-Requested-With': 'XMLHttpRequest'
     }
