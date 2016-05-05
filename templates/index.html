@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Bizzy Coupon</title>
+
+  
+</head><body>
+<div class="container">
+<h1>Welcome to Bizzy<br>
+</h1>
+<br>
+<p>Click <a href="/logout">here</a> to logout.</p>
+<p>Click <a href="/customer">here</a> to Customer page.</p>
+{% for message in get_flashed_messages() %} {{ message }} {% endfor %}<br>
+<br>
+<table>
+{% for d in discounts %} <tbody>
+<tr>
+<th> {{ d[0] }} </th>
+<td> {{ d[1] }} </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<br>
+<div style="text-align: justify;">
+<form enctype="multipart/form-data" method="post" action="/discounts" name="discount"> <label for="value">Coupon Value</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input name="value">&nbsp; &nbsp; <br>
+  <label for="min_order">Minimum Order Value</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input value="0" name="min_order"> &nbsp; <br>
+  <label for="type">Coupon Type</label> &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+  <select name="type">
+  <option>fixed_amount</option>
+  <option>percentage</option>
+  </select>
+  <br>
+  <br>
+  <input value="Add Coupon" type="submit"></form>
+</div>
+</div>
+
+</body></html>

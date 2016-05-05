@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html><head>
+  <title>Bizzy Coupon</title>
+
+  
+</head><body>
+<div class="container">
+<h1>Welcome to Bizzy<br>
+</h1>
+<br>
+<p>Click <a href="/logout">here</a> to logout.</p>
+<p>Click <a href="/">here</a> to Coupon.</p>
+{% for message in get_flashed_messages() %} {{ message }} {% endfor %}<br>
+<br>
+<table>
+{% for c in customers %} <tbody>
+    <tr>
+      <th> {{ c }} </th>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+<br>
+<div style="text-align: justify;">
+<form enctype="multipart/form-data" method="post" action="/customer" name="customer"> <label for="email">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input name="email">&nbsp; &nbsp; <br>
+  <label for="first_name">First Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input name="first_name"> &nbsp; <br>
+  <label for="last_name">Last Name</label> &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; <input name="last_name"><br>
+  <br>
+  <input value="Add Customer" type="submit"></form>
+</div>
+</div>
+
+</body></html>
